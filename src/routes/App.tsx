@@ -1,8 +1,18 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from '../components/Layout';
+import Dashboard from '../containers/Dashboard';
+import NotFound from '../containers/NotFound';
+
 function App() {
   return (
-    <div className="App">
-      <h1>Title</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
